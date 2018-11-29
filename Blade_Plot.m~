@@ -46,7 +46,7 @@ axis off
 
 
 subplot(2,2,2)
-%next subplot, same except changes view
+%next subplot, same exe
 for i = 1:length(radius)
     
     rotate(plot3(x(i,:),y(i,:),z2(i,:),'r'),[0 0 1],twist(i));
@@ -59,7 +59,6 @@ axis off
 
 
 subplot(2,2,4)
-%next subplot, same except changes view
 for i = 1:length(radius)
     
     rotate(plot3(x(i,:),y(i,:),z2(i,:),'r'),[0 0 1],twist(i));
