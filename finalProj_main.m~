@@ -1,16 +1,15 @@
 % ENME 337
 % Turbine Final Project
 close all;
-clc;
-population = 335696; % Population of Victoria
+clc
+population = 335696;
 
-% Loading files provided files
+
 load TURBINE_DATA/radius.dat
 load TURBINE_DATA/chord.dat
 load TURBINE_DATA/NACA64.dat
 load TURBINE_DATA/omega.dat
 load TURBINE_DATA/twist.dat
-
 % Loading Wind Data
 AprilData = Import_Weather ('TURBINE_DATA/WIND_DATA/AprilData.csv');
 JanuaryData = Import_Weather ('TURBINE_DATA/WIND_DATA/JanurayData.csv');
@@ -40,14 +39,11 @@ Create_WindRose(allData);
 
 Wind = 3:25; % creating vector of wind speeds
 
-% sending information to function Power_Per_Windspeed to calculate power 
-[rotorPower] = Power_Per_Windspeed(radius,chord,twist,NACA64,omega,Wind); 
+[rotorPower] = Power_Per_Windspeed(radius,chord,twist,NACA64,omega,Wind); % sending information to function to calculate power 
 MPower = rotorPower/(10^6); % converting power to MW
 MPower(MPower>5)=5; % limiting power to 5 MW 
 Rotor_Power_Speed_Plot(MPower,Wind)
 
-% Sending windspeeds in m/s and power in MW to function wind_Speed_perMonth
 wind_Speed_perMonth(windSpds,MPower);
 
-% Sending information to function Energy 
 Energy(population,MPower,allData(1,:));
