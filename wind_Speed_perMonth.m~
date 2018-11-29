@@ -1,6 +1,5 @@
 function [] = wind_Speed_perMonth(windSpds, power)
-% This function plots a histogram bar chart of the various wind speeds. In
-% addittion, it plots energy overtop
+% This function plots a histogram bar chart of the various wind speeds
 
 p = 1; %initial plot position 
 
