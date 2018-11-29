@@ -24,7 +24,7 @@ end
 
 
 axis([-1,5,-1,5,0,65])
-pbaspect([1 1 5])
+pbaspect([1 2 5])
 view(0,-35)
 axis off
 
