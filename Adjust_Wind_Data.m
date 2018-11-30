@@ -14,10 +14,12 @@ function [windSpds,windDirs,yearData] = Adjust_Wind_Data(JanuaryData,FebruaryDat
 h = 90;     % Hub height
 H = 15;     % Original height at which wind was measured
 
-
+% creating a matrix with all the wind speed and direction data for the
+% whole year 
 yearData = [JanuaryData;FebruaryData;MarchData;AprilData;MayData;JuneData;JulyData;...
-    AugustData;SeptemberData;OctoberData;NovemberData;DecemberData];
+    AugustData;SeptemberData;OctoberData;NovemberData;DecemberData]; 
 
+% Transposing the matrix year data to have 2 rows
 yearData = yearData';
 
 monthCol = [length(JanuaryData),length(FebruaryData),length(MarchData),length(AprilData),length(MayData),length(JuneData),...
