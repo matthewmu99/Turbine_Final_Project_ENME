@@ -1,5 +1,7 @@
 % ENME 337
 % Turbine Final Project
+% Group 11
+
 close all;
 clc;
 population = 335696; % Population of Victoria
