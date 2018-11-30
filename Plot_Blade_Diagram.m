@@ -26,6 +26,8 @@ set(gcf,'Position', Screen, 'Color', 'k')
 subplot(2,2,[1 3])
 %creates subplot
 
+
+% Loop for first subplot
 for i = 1:length(radius)
     
     rotate(plot3(x(i,:),y(i,:),z2(i,:),'r'),[0 0 1],twist(i));
@@ -33,8 +35,6 @@ for i = 1:length(radius)
     hold on
     
 end
-
-
 
 axis([-1,5,-1,5,0,65])
 %sets axis size of graph
@@ -45,8 +45,8 @@ view(0,-35)
 axis off
 
 
+% Loop for next subplot, same except changes view
 subplot(2,2,2)
-%next subplot, same except changes view
 for i = 1:length(radius)
     
     rotate(plot3(x(i,:),y(i,:),z2(i,:),'r'),[0 0 1],twist(i));
@@ -58,8 +58,8 @@ axis([-1,5,-1,1,0,65])
 axis off
 
 
+% Loop for next and final subplot, same except changes view
 subplot(2,2,4)
-%next subplot, same except changes view
 for i = 1:length(radius)
     
     rotate(plot3(x(i,:),y(i,:),z2(i,:),'r'),[0 0 1],twist(i));
@@ -76,6 +76,5 @@ view(90,45)
 axis off
 annotation('textbox',[.4 0.8 0.2 .1],'String','Blade Plots','EdgeColor','none','Color','r','FontSize',30,'HorizontalAlignment','center')
 hold off
-% print('Blade','-depsc');
 end
 
