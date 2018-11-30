@@ -25,7 +25,6 @@ grid on %Showing the grid
 grid minor
 axis([0 27 0 6]) %Setting the limits of the axis
 xticks(min(xi):max(xi)); %Setting the x ticks to increase by 1
-% print('PowerSpeed','-depsc'); %Printing the figure
 
 end
 

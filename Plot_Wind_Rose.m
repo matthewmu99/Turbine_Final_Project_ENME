@@ -149,5 +149,5 @@ pax.ThetaZeroLocation = 'top';
 
 title('Wind Rose')
 %adds title to plot
-% print('WindRose','-depsc');
+
 end
