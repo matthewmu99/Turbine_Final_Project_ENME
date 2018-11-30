@@ -1,6 +1,6 @@
 function [windSpds,windDirs,yearData] = Adjust_Wind_Data(JanuaryData,FebruaryData,MarchData,AprilData,MayData,JuneData,JulyData,...
     AugustData,SeptemberData,OctoberData,NovemberData,DecemberData)
-% Adjust_WindData takes 12 vectors of nx2 with values for wind speed and
+% Adjust_Wind_Data takes 12 vectors of nx2 with values for wind speed and
 % wind direction taken at height h
 % converts speeds from km/h to m/s and adjust for height H
 % converts direction from degrees to polar
