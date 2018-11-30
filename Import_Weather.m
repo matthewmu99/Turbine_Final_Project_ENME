@@ -1,6 +1,8 @@
 function [arrDat] = Import_Weather(fileName)
-%arrDat gives [speed, direction]
-%   Detailed explanation goes here
+%This function takes a file name and then reads it as a table by seperated
+%comma values as a delimitter. The table is then converted to an array of
+%strings which is then parsed to an array of doubles.
+
 warning('off','all') %turn off unessesary input warnings due to unused table elements (ie: blank cells) (this is temporary.) 
 
 tableDat = readtable(fileName,  'Delimiter',',','ReadVariableNames',false);
