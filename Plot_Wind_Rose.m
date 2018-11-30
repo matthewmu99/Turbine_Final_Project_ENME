@@ -11,33 +11,52 @@ direction = allData(2,:);
 %assigns the wind direction in radians to the variable directiom
 
 
-directSpeed5 = [];
+directSpeedAll = [];
 %creates a varible in which to store all directions for speeds that are
-%smaller than 6
+%greater than zero
 
 for i = 1:length(speed)
     %loops through all the wind speeds
-    if speed(i) < 6
-        %selects the speeds that are smaller than 4
+    if speed(i) > 0
+        %selects the speeds that are greater than zero
+        x = length(directSpeedAll)+1;
+        %calculates the index of the final element in directSpeedAll if one
+        %more element is added
+        
+        directSpeedAll(x) =  direction(i);
+        %adds the direction matching the index of the speed selected in the
+        %if statement to the end of directSpeedAll
+    end
+end
+
+
+directSpeed5 = [];
+%creates a varible in which to store all directions for speeds that are
+%smaller than 6 and greater than zero
+
+for i = 1:length(speed)
+    %loops through all the wind speeds
+    if speed(i) < 6 && speed(i) > 0
+        %selects the speeds that are smaller than 6 and greater than zero
         x = length(directSpeed5)+1;
-        %calculates the index of the final element in directSpeed4 if one
+        %calculates the index of the final element in directSpeed5 if one
         %more element is added
         
         directSpeed5(x) =  direction(i);
         %adds the direction matching the index of the speed selected in the
-        %if statement to the end of directSpeed4
+        %if statement to the end of directSpeed5
     end
 end
 
 
 directSpeed4 = [];
 %creates a varible in which to store all directions for speeds that are
-%smaller than 5
+%smaller than 5 and greater than zero
 
 for i = 1:length(speed)
     %loops through all the wind speeds
-    if speed(i) < 5
-        %selects the speeds that are smaller than 4
+    if speed(i) < 5 && speed(i) > 0
+        %selects the speeds that are smaller than 5 and greater than zero
         x = length(directSpeed4)+1;
         %calculates the index of the final element in directSpeed4 if one
         %more element is added
@@ -51,38 +70,38 @@ end
 
 directSpeed3 = [];
 %creates a varible in which to store all directions for speeds that are
-%smaller than 4
+%smaller than 4 and greater than zero
 
 for i = 1:length(speed)
     %loops through all the wind speeds
-    if speed(i) < 4
-        %selects the speeds that are smaller than 4
+    if speed(i) < 4 && speed(i) > 0
+        %selects the speeds that are smaller than 4 and greater than zero
         x = length(directSpeed3)+1;
-        %calculates the index of the final element in directSpeed4 if one
+        %calculates the index of the final element in directSpeed3 if one
         %more element is added
         
         directSpeed3(x) =  direction(i);
         %adds the direction matching the index of the speed selected in the
-        %if statement to the end of directSpeed4
+        %if statement to the end of directSpeed3
     end
 end
 
 
 directSpeed2 = [];
 %creates a varible in which to store all directions for speeds that are
-%smaller than 3
+%smaller than 3 and greater than zero
 
 for i = 1:length(speed)
     %loops through all the wind speeds
-    if speed(i) < 3
-        %selects the speeds that are smaller than 3
+    if speed(i) < 3 && speed(i) > 0
+        %selects the speeds that are smaller than 3 and greater than zero
         x = length(directSpeed2)+1;
-        %calculates the index of the final element in directSpeed3 if one
+        %calculates the index of the final element in directSpeed2 if one
         %more element is added
         
         directSpeed2(x) =  direction(i);
         %adds the direction matching the index of the speed selected in the
-        %if statement to the end of directSpeed3
+        %if statement to the end of directSpeed2
     end
 end
 
@@ -96,12 +115,12 @@ for i = 1:length(speed)
     if speed(i) < 2 && speed(i) > 0
         %selects the speeds that are smaller than 2 and greater than 0
         x = length(directSpeed1)+1;
-        %calculates the index of the final element in directSpeed2 if one
+        %calculates the index of the final element in directSpeed1 if one
         %more element is added
         
         directSpeed1(x) =  direction(i);
         %adds the direction matching the index of the speed selected in the
-        %if statement to the end of directSpeed2
+        %if statement to the end of directSpeed1
     end
 end
 
@@ -110,7 +129,7 @@ end
 figure('Name','Rose Plot')
 %names the figure for the rose plot
 
-polarhistogram(direction,36)
+polarhistogram(directSpeedAll,36)
 %Creates a polar histogram using all the directions. There are 36 different
 %directions, therefore the histogram is divided into 36 different sections.
 %The size of the sections is determined by the frequency of the direction.
@@ -127,11 +146,11 @@ polarhistogram(directSpeed1,36)
 %Plots the histogram for each different speed. This will show the the
 %different speeds in every direction.
 
-rlim([0 665])
+rlim([0 550])
 %limits the polar axis to a certain size
-rticks([220.5 441 661.5])
+rticks([171.08 342.16 513.24])
 %adds ticks to certains lengths of the polar axis
-rticklabels({'2.5%','5%','7.5%'})
+rticklabels({'2%','4%','6%'})
 %adds labels to the ticks to show the percentage that each length of the
 %polar axis corresponds to
 
@@ -149,5 +168,6 @@ pax.ThetaZeroLocation = 'top';
 
 title('Wind Rose')
 %adds title to plot
+
 
 end
