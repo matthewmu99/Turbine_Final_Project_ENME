@@ -169,5 +169,4 @@ pax.ThetaZeroLocation = 'top';
 title('Wind Rose')
 %adds title to plot
 
-
 end
