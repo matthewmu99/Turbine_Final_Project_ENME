@@ -1,4 +1,4 @@
-function [Power] = Power_Per_Windspeed(radius,chord,twist,NACA64,omega,Speed)
+function [Power] = Compute_Power_perWSpeed(radius,chord,twist,NACA64,omega,Speed)
 %Power_Per_Windspeed takes in the radius, chord, twist, NACA64, omega, and 
 %the wind speeds from 3 to 25 and calculates the power at each speed for
 %the wind turbine.

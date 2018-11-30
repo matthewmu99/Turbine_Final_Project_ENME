@@ -29,25 +29,26 @@ yDivC = xlsread('TURBINE_DATA/Final Project Airfoil Profile.xlsx','B3:B207');
 
 % sending values to function Blade_Plot which plots the geometry of the
 % blade
-Blade_Plot(radius,chord,twist,xDivC,yDivC);
+Plot_Blade_Diagram(radius,chord,twist,xDivC,yDivC);
 
 % sending imported monthly wind data to function Adjust_WindData
-[windSpds, windDirs, allData] = Adjust_WindData(JanuaryData,FebruaryData,MarchData,AprilData,MayData,JuneData,JulyData,...
+[windSpds, windDirs, allData] = Adjust_Wind_Data(JanuaryData,FebruaryData,MarchData,AprilData,MayData,JuneData,JulyData,...
     AugustData,SeptemberData,OctoberData,NovemberData,DecemberData);
 
 % Sending matrix allData to function Create_WindRose
-Create_WindRose(allData);
+Plot_Wind_Rose(allData);
 
 Wind = 3:25; % creating vector of wind speeds
 
-% sending information to function Power_Per_Windspeed to calculate power 
-[rotorPower] = Power_Per_Windspeed(radius,chord,twist,NACA64,omega,Wind); 
+% sending information to function Power_Per_Windspeed to calculate power
+[rotorPower] = Compute_Power_perWSpeed(radius,chord,twist,NACA64,omega,Wind);
 MPower = rotorPower/(10^6); % converting power to MW
-MPower(MPower>5)=5; % limiting power to 5 MW 
-Rotor_Power_Speed_Plot(MPower,Wind)
+MPower(MPower>5)=5; % limiting power to 5 MW
+
+Plot_RPower_Speed(MPower,Wind)
 
 % Sending windspeeds in m/s and power in MW to function wind_Speed_perMonth
-wind_Speed_perMonth(windSpds,MPower);
+Plot_WSpeed_perMonth(windSpds,MPower);
 
-% Sending information to function Energy 
-Energy(population,MPower,allData(1,:));
+% Sending information to function Energy
+Compute_Energy(population,MPower,allData(1,:));

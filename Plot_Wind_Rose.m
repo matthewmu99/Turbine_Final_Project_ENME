@@ -1,4 +1,4 @@
-function [] = Create_WindRose(allData)
+function [] = Plot_Wind_Rose(allData)
 % Creates the wind rose plot, which shows the wind speeds associated with
 % the different wind direction. Uses allData as an imput because allData
 % contains wind speed in one row and wind direction in the other row
@@ -149,5 +149,5 @@ pax.ThetaZeroLocation = 'top';
 
 title('Wind Rose')
 %adds title to plot
-print('WindRose','-depsc');
+% print('WindRose','-depsc');
 end

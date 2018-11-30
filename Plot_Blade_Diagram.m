@@ -1,4 +1,4 @@
-function [] = Blade_Plot(radius,chord,twist,xDivC,yDivC)
+function [] = Plot_Blade_Diagram(radius,chord,twist,xDivC,yDivC)
 %Creates a plot of the shape of the turbine blade. Three different views
 %are displayed on one figure to show the overall shape.
 
@@ -76,6 +76,6 @@ view(90,45)
 axis off
 annotation('textbox',[.4 0.8 0.2 .1],'String','Blade Plots','EdgeColor','none','Color','r','FontSize',30,'HorizontalAlignment','center')
 hold off
-print('Blade','-depsc');
+% print('Blade','-depsc');
 end
 

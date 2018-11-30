@@ -1,4 +1,4 @@
-function [] = wind_Speed_perMonth(windSpds, power)
+function [] = Plot_WSpeed_perMonth(windSpds, power)
 % This function plots a histogram bar chart of the various wind speeds. In
 % addittion, it plots energy overtop
 
@@ -60,6 +60,6 @@ for i = 1:12 %loop thru all 12 months
     
     
 end
-print('WindSpeed','-depsc');
+% print('WindSpeed','-depsc');
 end
 

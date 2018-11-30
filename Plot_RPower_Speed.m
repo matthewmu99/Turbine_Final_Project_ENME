@@ -1,4 +1,4 @@
-function [] = Rotor_Power_Speed_Plot(rotorPower,windSpeed)
+function [] = Plot_RPower_Speed(rotorPower,windSpeed)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 figure('Name','Rotor Power as a Function of Wind Speed');
@@ -21,7 +21,7 @@ ylabel('Rotor Power [MW]');
 grid on
 axis([0 27 0 6])
 xticks(min(xi):max(xi)); 
-print('PowerSpeed','-depsc');
+% print('PowerSpeed','-depsc');
 
 end
 
