@@ -2,7 +2,7 @@ function [] = Plot_WSpeed_perMonth(windSpds, power)
 % This function plots a histogram bar chart of the various wind speeds. In
 % addittion, it plots energy overtop
 
-p = 1; %initial plot position 
+p = 1; %initial plot position
 
 figure('Name','Monthly Wind Speed Distribution') %Define a new figure for the plot
 

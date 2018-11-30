@@ -15,17 +15,17 @@ h = 90;     % Hub height
 H = 15;     % Original height at which wind was measured
 
 % creating a matrix with all the wind speed and direction data for the
-% whole year 
+% whole year
 yearData = [JanuaryData;FebruaryData;MarchData;AprilData;MayData;JuneData;JulyData;...
-    AugustData;SeptemberData;OctoberData;NovemberData;DecemberData]; 
+    AugustData;SeptemberData;OctoberData;NovemberData;DecemberData];
 
 % Transposing the matrix year data to have 2 rows
 yearData = yearData';
 
 monthCol = [length(JanuaryData),length(FebruaryData),length(MarchData),length(AprilData),length(MayData),length(JuneData),...
     length(JulyData),length(AugustData),length(SeptemberData),length(OctoberData),length(NovemberData),length(DecemberData)];
-maxNum = max(monthCol); % calculating the length of the month with the most entries 
-                                
+maxNum = max(monthCol); % calculating the length of the month with the most entries
+
 monthMat = NaN(maxNum);     % creating a nxn matrix of NaN entries where n = maxNum
 monthMat(:,25:end) = [];    % adjusting the matrix to only have 24 col
 monthMat = monthMat';       % transposing monthMat so it now has 24 rows
@@ -39,8 +39,8 @@ yearData(2,:) = yearData(2,:)*(pi/18);            % Converting angles from degre
 
 month = 1;     % setting month to 1 which determines which month is used
 yIndex = 1;    % setting yIndex to 1 which determines starting index at which yearData is copyied from in loop
-add = 0;    
-for i = 1:2:24                                        % looping 12 times  
+add = 0;
+for i = 1:2:24                                        % looping 12 times
     l = monthCol(month);                              % setting l to the length of the respective month
     lYear = monthCol(month)+add;                      % setting end index at which data will be used in yearData
     monthMat(i:i+1,1:l) = yearData(1:2,yIndex:lYear); % copying the information for each month from yearData to monthMat

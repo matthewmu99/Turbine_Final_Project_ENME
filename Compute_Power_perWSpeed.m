@@ -1,5 +1,5 @@
 function [Power] = Compute_Power_perWSpeed(radius,chord,twist,NACA64,omega,Speed)
-%Power_Per_Windspeed takes in the radius, chord, twist, NACA64, omega, and 
+%Power_Per_Windspeed takes in the radius, chord, twist, NACA64, omega, and
 %the wind speeds from 3 to 25 and calculates the power at each speed for
 %the wind turbine.
 
@@ -13,13 +13,13 @@ for s = 1:length(radius) %Looping over each radius/chord/twist
     
     for q = 1:length(Speed)     %Looping through each speed
         aCurrent = aCritical;
-        aPast = 1; 
-        aCurrentPrime = aCritical; 
+        aPast = 1;
+        aCurrentPrime = aCritical;
         aPastPrime = 1;  %Resetting values for each different speed
         
         
         while (abs(aCurrent - aPast) > 1e-6)|| (abs(aCurrentPrime - aPastPrime) > 1e-6)     %If a or a' changes enter the loop
-     
+            
             aPast = aCurrent;    %Storing the past a
             aPastPrime = aCurrentPrime; %Storing the past a
             
@@ -52,14 +52,14 @@ for s = 1:length(radius) %Looping over each radius/chord/twist
                 aCurrent = 1/2*(2+K*(1-2*aCritical)-sqrt((K*(1-2*aCritical)+2)^2+4*(K*(aCritical)^2-1)));     %Finding the new a step 7
             end
             
-           
+            
         end     %Redo loop if a or a' change step 8
         
         VRelative = (Speed(q)*(1-aCurrent))/(sin(phi));     %Finding the relative velocities step 9
         TangentialLoad(s,q) = 1/2*CTangent*AirDensity*VRelative^2*chord(s);     %Finding the tangential load step 9
-    
+        
     end     %Loop again through each speed
-
+    
 end     %Loop again through each radius
 
 M = zeros(length(radius)-1,length(Speed));     %Preallocating the shaft torque matrix
@@ -71,9 +71,9 @@ for j = 1:length(Speed)    %Looping through each speed of tangential load
         A = (TangentialLoad(i+1,j)-TangentialLoad(i,j))/(radius(i+1)-radius(i));    %Finding A step 11
         B2 = (radius(i+1)*TangentialLoad(i,j)-radius(i)*TangentialLoad(i+1,j))/(radius(i+1)-radius(i));  %Finding B step 11
         M(i,j)=1/3*A*((radius(i+1))^3-(radius(i))^3)+1/2*B2*((radius(i+1))^2-(radius(i))^2);     %Finding the shaft torque step 11
-    
+        
     end     %Go to the next radius
-
+    
 end     %Go to the next speed
 
 

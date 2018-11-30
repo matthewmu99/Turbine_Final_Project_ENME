@@ -16,11 +16,11 @@ directSpeed5 = [];
 %smaller than 6
 
 for i = 1:length(speed)
-%loops through all the wind speeds 
+    %loops through all the wind speeds
     if speed(i) < 6
-    %selects the speeds that are smaller than 4
+        %selects the speeds that are smaller than 4
         x = length(directSpeed5)+1;
-        %calculates the index of the final element in directSpeed4 if one 
+        %calculates the index of the final element in directSpeed4 if one
         %more element is added
         
         directSpeed5(x) =  direction(i);
@@ -35,11 +35,11 @@ directSpeed4 = [];
 %smaller than 5
 
 for i = 1:length(speed)
-%loops through all the wind speeds 
+    %loops through all the wind speeds
     if speed(i) < 5
-    %selects the speeds that are smaller than 4
+        %selects the speeds that are smaller than 4
         x = length(directSpeed4)+1;
-        %calculates the index of the final element in directSpeed4 if one 
+        %calculates the index of the final element in directSpeed4 if one
         %more element is added
         
         directSpeed4(x) =  direction(i);
@@ -54,11 +54,11 @@ directSpeed3 = [];
 %smaller than 4
 
 for i = 1:length(speed)
-%loops through all the wind speeds 
+    %loops through all the wind speeds
     if speed(i) < 4
-    %selects the speeds that are smaller than 4
+        %selects the speeds that are smaller than 4
         x = length(directSpeed3)+1;
-        %calculates the index of the final element in directSpeed4 if one 
+        %calculates the index of the final element in directSpeed4 if one
         %more element is added
         
         directSpeed3(x) =  direction(i);
@@ -73,11 +73,11 @@ directSpeed2 = [];
 %smaller than 3
 
 for i = 1:length(speed)
-%loops through all the wind speeds
+    %loops through all the wind speeds
     if speed(i) < 3
-    %selects the speeds that are smaller than 3
+        %selects the speeds that are smaller than 3
         x = length(directSpeed2)+1;
-        %calculates the index of the final element in directSpeed3 if one 
+        %calculates the index of the final element in directSpeed3 if one
         %more element is added
         
         directSpeed2(x) =  direction(i);
@@ -92,11 +92,11 @@ directSpeed1 = [];
 %smaller than 2 and greater than 0
 
 for i = 1:length(speed)
-%loops through all the wind speeds
+    %loops through all the wind speeds
     if speed(i) < 2 && speed(i) > 0
-    %selects the speeds that are smaller than 2 and greater than 0
+        %selects the speeds that are smaller than 2 and greater than 0
         x = length(directSpeed1)+1;
-        %calculates the index of the final element in directSpeed2 if one 
+        %calculates the index of the final element in directSpeed2 if one
         %more element is added
         
         directSpeed1(x) =  direction(i);
